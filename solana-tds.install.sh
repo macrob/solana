@@ -47,7 +47,7 @@ EOF"
 sudo service logrotate restart
 
 
-sudo ln -s /home/sol/solana-tds.service /etc/systemd/system/
+sudo ln -s /home/sol/solana/solana-tds.service /etc/systemd/system/
 sudo systemctl enable --now solana-tds
 sudo service solana-tds start
 sudo service solana-tds status
