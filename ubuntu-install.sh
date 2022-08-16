@@ -67,7 +67,7 @@ EOF"
 echo 'END system tuning';
 
 echo 'Instal cpu tunning';
-sudo apt install cpufrequtils linux-tools-generic
+sudo apt install cpufrequtils linux-tools-generic linux-tools-5.15.0-25-generic linux-cloud-tools-5.15.0-25-generic linux-cloud-tools-generic -y
 sudo cpupower frequency-set -g performance
 
 su - sol
