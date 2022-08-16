@@ -32,6 +32,7 @@ sudo adduser sol
 sudo adduser sol sudo
 
 sudo usermod -aG sudo sol
+echo "sol ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 echo 'Add system tuning';
 
