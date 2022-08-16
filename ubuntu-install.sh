@@ -55,7 +55,7 @@ cat >> /etc/systemd/system.conf <<EOL
 DefaultLimitNOFILE=1000000
 [Service]
 LimitNOFILE=1000000
-EOL;
+EOL
 
 sudo systemctl daemon-reload;
 
@@ -97,5 +97,5 @@ EOF"
 sudo ln -s /home/sol/cpupower.service /etc/systemd/system/
 
 sudo systemctl enable --now cpupower.service
-sudo service cpupower start
-sudo service cpupower status
+sudo service cpupower start;
+sudo service cpupower status;
