@@ -1,0 +1,55 @@
+[Unit]
+Description=Solana MainNet Validator
+After=network.target syslog.target sys-tuner.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=sol
+LimitNOFILE=1000000
+Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
+
+ExecStart=/home/sol/.local/share/solana/install/active_release/bin/solana-validator \
+--identity "/home/sol/keys/validator-keypair.json" \
+--vote-account "/home/sol/keys/vote-account-keypair.json" \
+--ledger "/home/sol/ledger" \
+--accounts "/home/sol/accounts" \
+--snapshots "/home/sol/snapshots" \
+--rpc-port 8899 \
+--private-rpc \
+--dynamic-port-range 8000-8022 \
+--entrypoint entrypoint.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
+--entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
+--expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
+--log "/home/sol/logs/solana-validator.log" \
+--wal-recovery-mode skip_any_corrupted_record \
+--limit-ledger-size \
+--incremental-snapshots \
+--full-snapshot-interval-slots 15000 \
+--incremental-snapshot-interval-slots 1000 \
+--maximum-full-snapshots-to-retain 1 \
+--maximum-incremental-snapshots-to-retain 2 \
+--full-rpc-api \
+--wait-for-supermajority 135986379\
+--expected-shred-version 51382 \
+--expected-bank-hash DfRg2DQzWVQjRTBSXwTaYgHDPZbQ85ebLrfayJmMENtp \
+--known-validator 5tFvFBWUPt94HQuZyMSuHnpcHrjMPLrTg8WBbv9G5VqU \
+--known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
+--known-validator SerGoB2ZUyi9A1uBFTRpGxxaaMtrFwbwBpRytHefSWZ \
+--known-validator FLVgaCPvSGFguumN9ao188izB4K4rxSWzkHneQMtkwQJ \
+--known-validator qZMH9GWnnBkx7aM1h98iKSv2Lz5N78nwNSocAxDQrbP \
+--known-validator GiYSnFRrXrmkJMC54A1j3K4xT6ZMfx1NSThEe5X2WpDe \
+--known-validator LA1NEzryoih6CQW3gwQqJQffK2mKgnXcjSQZSRpM3wc \
+--known-validator Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24 \
+--known-validator 9bkyxgYxRrysC1ijd6iByp9idn112CnYTw243fdH2Uvr \
+--known-validator 12ashmTiFStQ8RGUpi1BTCinJakVyDKWjRL6SWhnbxbT \
+--known-validator FdaysQ2BZWUGBy8nqFgiudnrhzJp4xChQ8B4zJdc2JZB \
+--no-snapshot-fetch
+
+[Install]
+WantedBy=multi-user.target
