@@ -3,6 +3,8 @@
 echo 'install solana cli';
 
 sh -c "$(curl -sSfL https://release.solana.com/v1.10.35/install)"
+export PATH="/home/sol/.local/share/solana/install/active_release/bin:$PATH"
+
 #solana config set --url https://api.mainnet-beta.solana.com
 solana config set --url https://api.mainnet-beta.solana.com
 solana config set --keypair ~/keys/validator-keypair.json
