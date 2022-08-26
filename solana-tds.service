@@ -30,7 +30,7 @@ ExecStart=/home/sol/.local/share/solana/install/active_release/bin/solana-valida
 --maximum-full-snapshots-to-retain 1 \
 --maximum-incremental-snapshots-to-retain 2 \
 --full-rpc-api \
---wait-for-supermajority 144871251 \
+#--wait-for-supermajority 144871251 \
 --expected-shred-version 24371 \
 --entrypoint 5.9.35.85:8001 \
 --entrypoint entrypoint.testnet.solana.com:8001 \
