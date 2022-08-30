@@ -15,7 +15,7 @@ sudo sed -i "s/#Port 22/Port 3784/" /etc/ssh/sshd_config
 sudo sed -i -r 's/^#PasswordAuthentication\ yes/PasswordAuthentication\ no/g' /etc/ssh/sshd_config
 sudo service sshd restart;
 
-sudo apt install ufw curl fail2ban fish gawk jq gnupg2 git htop ncdu qt -y
+sudo apt install ufw curl fail2ban fish gawk jq gnupg2 git htop ncdu qt fish net-tools -y
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow 3784
@@ -68,18 +68,18 @@ EOF"
 echo 'END system tuning';
 
 echo 'Instal cpu tunning';
-sudo apt install cpufrequtils linux-tools-generic linux-tools-5.15.0-25-generic linux-cloud-tools-5.15.0-25-generic linux-cloud-tools-generic -y
+sudo apt install cpufrequtils linux-tools-generic  linux-cloud-tools-generic -y
 sudo cpupower frequency-set -g performance
 
 su - sol
-mkdir logs ledger
+mkdir logs ledger keys
 mkdir ~/.ssh
 echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDb9Zf1NQaWgaVXXls1WI5MRsubYi2WB2VjFzlAfEO38a+NFEbwqkOGwayUtsncIamn7jB5Hni8D72DuOFqWPYcdbiEapryvtNq0HesjLkqkby/8k+2NRiEf29Z/ujFnMtRS+cXDdpcSkcMcWLcHWMUkH1AzRYYxnSPLUMq4j4pHQ3jpJPNTSKqAsFRamEyMmaY9U+Ft5qfKNO7Fe7fJyZvPmdJ/2SlV9Zjd9C9rS80IwNeZ9B8m5R4roMnx3h9BOHYtX47zco0gu0mlRVMSYzLD5uDSfz/F5Tb7qJdqvwjCAZZdcLlwd5lg/6QrE+kM9O/Jr0UDbwldc9paA2OGNA7 rsa 2048' >> ~/.ssh/authorized_keys
 
 
 echo 'install cpu service';
 
-sudo bash -c "cat >/home/sol/cpupower.service <<EOF
+sudo bash -c "cat >/etc/systemd/system/cpupower.service <<EOF
 [Unit]
 
 Description=CPU performance
@@ -94,8 +94,6 @@ ExecStart=/usr/bin/cpupower -c all frequency-set -g performance
 
 WantedBy=multi-user.target
 EOF"
-
-sudo ln -s /home/sol/cpupower.service /etc/systemd/system/
 
 sudo systemctl enable --now cpupower.service
 sudo service cpupower start;
