@@ -18,7 +18,6 @@ ExecStart=/home/sol/.local/share/solana/install/active_release/bin/solana-valida
 --accounts "/home/sol/accounts" \
 --snapshots "/home/sol/snapshots" \
 --rpc-port 8899 \
---private-rpc \
 --dynamic-port-range 8000-8022 \
 --entrypoint entrypoint.mainnet-beta.solana.com:8001 \
 --entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
@@ -35,21 +34,22 @@ ExecStart=/home/sol/.local/share/solana/install/active_release/bin/solana-valida
 --maximum-full-snapshots-to-retain 1 \
 --maximum-incremental-snapshots-to-retain 2 \
 --full-rpc-api \
---wait-for-supermajority 135986379\
---expected-shred-version 51382 \
---expected-bank-hash DfRg2DQzWVQjRTBSXwTaYgHDPZbQ85ebLrfayJmMENtp \
---known-validator 5tFvFBWUPt94HQuZyMSuHnpcHrjMPLrTg8WBbv9G5VqU \
---known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
---known-validator SerGoB2ZUyi9A1uBFTRpGxxaaMtrFwbwBpRytHefSWZ \
---known-validator FLVgaCPvSGFguumN9ao188izB4K4rxSWzkHneQMtkwQJ \
---known-validator qZMH9GWnnBkx7aM1h98iKSv2Lz5N78nwNSocAxDQrbP \
---known-validator GiYSnFRrXrmkJMC54A1j3K4xT6ZMfx1NSThEe5X2WpDe \
---known-validator LA1NEzryoih6CQW3gwQqJQffK2mKgnXcjSQZSRpM3wc \
---known-validator Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24 \
---known-validator 9bkyxgYxRrysC1ijd6iByp9idn112CnYTw243fdH2Uvr \
---known-validator 12ashmTiFStQ8RGUpi1BTCinJakVyDKWjRL6SWhnbxbT \
---known-validator FdaysQ2BZWUGBy8nqFgiudnrhzJp4xChQ8B4zJdc2JZB \
---no-snapshot-fetch
+--wait-for-supermajority 153139220 \
+#--no-snapshot-fetch \
+#--no-genesis-fetch \
+--expected-bank-hash 4kL82HMacFEPTpvwBhNpFTmw2GeSCvvDn3xPi7Whdntc \
+--expected-shred-version 11762 \
+--known-validator 3qmEGZpEUFYxXiLU5CZjSaUy2X28oV51qVLenKEutYDe \
+--known-validator 66RAWQ8kUE95WpuJ7vkAS55TWfDo7ZonyTsLeGfs7dt3 \
+--known-validator 9Yb1epzjDEkyiAUKtAND6mHK4DgovbEub9LmRKG3JogZ \
+#--known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
+#--known-validator Ninja1spj6n9t5hVYgF3PdnYz2PLnkt7rvaw3firmjs \
+#--known-validator CXPeim1wQMkcTvEHx9QdhgKREYYJD8bnaCCqPRwJ1to1 \
+#--known-validator A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2 \
+#--known-validator 23U4mgK9DMCxsv2StC4y2qAptP25Xv5b2cybKCeJ1to3 \
+#--known-validator Ei8VLKR3chZAhJzWwj8PopeuedpQiths2ovVCQ2BCvK7 \
+#--known-validator DiGifdKABxzru2KsjN3YkZZmWP9mVMYK8HWadjtPtJit \
+#--known-validator 9FXD1NXrK6xFU8i4gLAgjj2iMEWTqJhSuQN8tQuDfm2e \
 
 [Install]
 WantedBy=multi-user.target
