@@ -39,9 +39,10 @@ ExecStart=/home/sol/.local/share/solana/install/active_release/bin/solana-valida
 #--no-genesis-fetch \
 --expected-bank-hash 4kL82HMacFEPTpvwBhNpFTmw2GeSCvvDn3xPi7Whdntc \
 --expected-shred-version 11762 \
---known-validator 3qmEGZpEUFYxXiLU5CZjSaUy2X28oV51qVLenKEutYDe \
+#--known-validator 3qmEGZpEUFYxXiLU5CZjSaUy2X28oV51qVLenKEutYDe \
 --known-validator 66RAWQ8kUE95WpuJ7vkAS55TWfDo7ZonyTsLeGfs7dt3 \
 --known-validator 9Yb1epzjDEkyiAUKtAND6mHK4DgovbEub9LmRKG3JogZ \
+--known-validator 5tFvFBWUPt94HQuZyMSuHnpcHrjMPLrTg8WBbv9G5VqU \
 #--known-validator PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb \
 #--known-validator Ninja1spj6n9t5hVYgF3PdnYz2PLnkt7rvaw3firmjs \
 #--known-validator CXPeim1wQMkcTvEHx9QdhgKREYYJD8bnaCCqPRwJ1to1 \
